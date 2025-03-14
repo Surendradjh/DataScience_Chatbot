@@ -21,7 +21,7 @@ output = StrOutputParser()
 chain = template | model | output
 
 def messages_history(session_id):
-    return SQLChatMessageHistory(session_id=session_id, connection="sqlite:///Chat_history/sqlite.db")
+    return SQLChatMessageHistory(session_id=session_id, connection="sqlite:///sqlite.db")
 
 conversation_chain = RunnableWithMessageHistory(
     chain, messages_history, input_message_key="input", history_messages_key="chat_history"
